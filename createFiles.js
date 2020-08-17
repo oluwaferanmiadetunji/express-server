@@ -1,24 +1,27 @@
 import fs from 'fs';
-import {FOLDER_EXISTS_ERROR} from './constants.js';
+import {FOLDER_EXISTS_ERROR, PROJECT_PATH} from './constants.js';
 
+// create the project folder
 export const generateProject = (name, port, author, description, mongooseConnection) => {
-	createProjectFolder(name);
-};
-
-const createProjectFolder = (name) => {
+	// check if a folder with the project name exists
 	try {
-		if (fs.existsSync(`./${name}`)) {
-			throw FOLDER_EXISTS_ERROR;
+		// if it exists
+		if (fs.existsSync(`.${PROJECT_PATH}/${name}`)) {
+			console.log(FOLDER_EXISTS_ERROR);
 		} else {
-			fs.mkdir(`./${name}`, (err) => {
-				if (err) {
-					console.log(err);
-				} else {
-					return;
-				}
+			// if it doesn't exist, create the folder
+			fs.mkdir(`.${PROJECT_PATH}/${name}`, (err) => {
+				if (err) throw err;
+			});
+			// create the .env file
+			fs.writeFileSync(`.${PROJECT_PATH}/${name}/.env`, `MONGO_DB_URI=${mongooseConnection}`, (err) => {
+				if (err) throw err;
+				else console.log('File created suuccessfully');
 			});
 		}
-	} catch (e) {
-		console.log(e);
+	} catch (err) {
+		console.log(err);
 	}
 };
+
+const generateenvFile = (name, mongooseConnection) => {};
