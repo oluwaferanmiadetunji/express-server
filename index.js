@@ -1,29 +1,19 @@
-const readline = require('readline');
-const {DEFAULT_PORT} = require('./constants');
+import {createInterface} from 'readline';
+import {DEFAULT_PORT} from './constants.js';
 
-const rl = readline.createInterface({
-	input: process.stdin,
-	output: process.stdout,
-});
+const rl = createInterface(process.stdin, process.stdout);
 
-let port;
+let port, projectName;
 
-rl.question('What port do you want to run it on? (5000) ', (portInput) => {
-	const pattern = /^\d+$/;
-	if (portInput) {
-		if (pattern.test(portInput)) {
-			port = portInput;
-		} else {
-			console.log('The port must be of type: Integer');
-		}
-	} else {
-		port = DEFAULT_PORT;
-	}
-
-	rl.close();
+rl.question('What is your project name: ', (name) => {
+	rl.question('What port do you want to run it on? (5000) ', (portInput) => {
+		projectName = name.toLowerCase();
+		port = portInput ? portInput : DEFAULT_PORT;
+		rl.close();
+	});
 });
 
 rl.on('close', function () {
-	console.log(`Your server will run on port ${port}`);
-	process.exit(0);
+	console.log(`Your project (${projectName})'s server will run on port ${port}`);
+	process.exit();
 });

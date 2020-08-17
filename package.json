@@ -1,26 +1,27 @@
 {
-  "name": "express-server-generator",
-  "version": "1.0.1",
-  "description": "This package helps you set up an express server connected to monodb via monoose",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"No test specified\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/oluwaferanmiadetunji/express-server.git"
-  },
-  "keywords": [
-    "express",
-    "node",
-    "server",
-    "mongoose",
-    "mongodb"
-  ],
-  "author": "Adetunji Oluwaferanmi",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/oluwaferanmiadetunji/express-server/issues"
-  },
-  "homepage": "https://github.com/oluwaferanmiadetunji/express-server#readme"
+	"name": "express-server-generator",
+	"version": "1.0.1",
+	"description": "This package helps you set up an express server connected to monodb via monoose",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"No test specified\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/oluwaferanmiadetunji/express-server.git"
+	},
+	"keywords": [
+		"express",
+		"node",
+		"server",
+		"mongoose",
+		"mongodb"
+	],
+	"author": "Adetunji Oluwaferanmi",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/oluwaferanmiadetunji/express-server/issues"
+	},
+	"homepage": "https://github.com/oluwaferanmiadetunji/express-server#readme"
 }
