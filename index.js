@@ -1,25 +1,34 @@
 import {createInterface} from 'readline';
-import {DEFAULT_PORT} from './constants.js';
+import {DEFAULT_PORT, DEFAULT_NAME} from './constants.js';
+import {generateProject} from './createFiles.js';
 
 const rl = createInterface(process.stdin, process.stdout);
 
-let port, name, description, author;
+let name, port, description, author, mongooseConnection, answer;
 
-rl.question('What is your project name: ', (projectName) => {
-	rl.question('What port do you want to run it on? (5000) ', (projectPort) => {
+rl.question(`Project Name (${DEFAULT_NAME}): `, (projectName) => {
+	rl.question(`Port number (${DEFAULT_PORT}): `, (projectPort) => {
 		rl.question('Project Author: ', (projectAuthor) => {
 			rl.question('Project Description: ', (projectDescription) => {
-				name = projectName.trim().toLowerCase();
-				port = projectPort ? projectPort : DEFAULT_PORT;
-				description = projectDescription ? projectDescription.trim() : '';
-				author = projectAuthor ? projectAuthor.trim() : '';
-				rl.close();
+				rl.question('Mongo DB connection string: ', (projectConnection) => {
+					rl.question('Proceed? (Y/n) ', (value) => {
+						name = projectName ? projectName.trim().toLowerCase() : DEFAULT_NAME;
+						port = projectPort ? projectPort : DEFAULT_PORT;
+						description = projectDescription ? projectDescription.trim() : '';
+						author = projectAuthor ? projectAuthor.trim() : '';
+						mongooseConnection = projectConnection ? projectConnection : '';
+						answer = value ? value.trim().toLowerCase() : 'y';
+						if (answer == 'y' || answer == 'yes') {
+							generateProject(name, port, author, description, mongooseConnection);
+						}
+						rl.close();
+					});
+				});
 			});
 		});
 	});
 });
 
 rl.on('close', function () {
-	console.log(`Your project (${name})'s server will run on port ${port}, author: ${author}, description: ${description}`);
 	process.exit();
 });
