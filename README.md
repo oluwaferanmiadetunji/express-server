@@ -1,4 +1,4 @@
-# express-server-generator
+# server-generator
 
 > A simple package to set up a mongoDb connected express server
 
@@ -7,7 +7,7 @@ This module
 ## Install
 
 ```
-$ npm i -g express-server-generator
+$ npm i -g server-generator
 ```
 
 ## Usage

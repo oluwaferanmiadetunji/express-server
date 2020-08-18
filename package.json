@@ -22,7 +22,7 @@
 		"mongodb"
 	],
 	"author": "Adetunji Oluwaferanmi",
-	"license": "ISC",
+	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/oluwaferanmiadetunji/express-server/issues"
 	},
