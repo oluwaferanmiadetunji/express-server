@@ -1,6 +1,6 @@
 import {createInterface} from 'readline';
 import {DEFAULT_PORT, DEFAULT_NAME} from './constants.js';
-import {generateProject} from './createFiles.js';
+import {generateProject} from './helperFunctions/createFiles.js';
 
 const rl = createInterface(process.stdin, process.stdout);
 

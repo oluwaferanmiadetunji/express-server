@@ -1,7 +1,8 @@
 import fs from 'fs';
-import {FOLDER_EXISTS_ERROR, PROJECT_PATH} from './constants.js';
+import {FOLDER_EXISTS_ERROR, PROJECT_PATH} from '../constants.js';
 import createPackage from './createPackage.js';
 import createENV from './createenv.js';
+import createServer from './createServer.js';
 
 // create the project folder
 export const generateProject = (name, port, author, description, mongooseConnection) => {
@@ -21,6 +22,14 @@ export const generateProject = (name, port, author, description, mongooseConnect
 			});
 			// create the package.json file
 			fs.writeFileSync(`.${PROJECT_PATH}/${name}/package.json`, createPackage(name, description, author), (err) => {
+				if (err) throw err;
+			});
+			// create the src folder
+			fs.mkdir(`.${PROJECT_PATH}/${name}/src`, (err) => {
+				if (err) throw err;
+			});
+			// create the server.js file
+			fs.writeFileSync(`.${PROJECT_PATH}/${name}/src/server.js`, createServer(port), (err) => {
 				if (err) throw err;
 			});
 		}
