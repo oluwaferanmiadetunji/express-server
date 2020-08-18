@@ -4,6 +4,8 @@ import createPackage from './createPackage.js';
 import createENV from './createEnv.js';
 import createServer from './createServer.js';
 import createApp from './createApp.js';
+import createConnection from './createConnection.js';
+import createConfig from './createConfig.js';
 
 // create the project folder
 export const generateProject = (name, port, author, description, mongooseConnection) => {
@@ -33,9 +35,20 @@ export const generateProject = (name, port, author, description, mongooseConnect
 			fs.writeFileSync(`.${PROJECT_PATH}/${name}/src/server.js`, createServer(port), (err) => {
 				if (err) throw err;
 			});
-
 			// create the app.js file
 			fs.writeFileSync(`.${PROJECT_PATH}/${name}/src/app.js`, createApp(), (err) => {
+				if (err) throw err;
+			});
+			// create the utils folder
+			fs.mkdir(`.${PROJECT_PATH}/${name}/src/utils`, (err) => {
+				if (err) throw err;
+			});
+			// create the config.js file
+			fs.writeFileSync(`.${PROJECT_PATH}/${name}/src/utils/config.js`, createConfig(), (err) => {
+				if (err) throw err;
+			});
+			// create the connection.js file
+			fs.writeFileSync(`.${PROJECT_PATH}/${name}/src/utils/connection.js`, createConnection(), (err) => {
 				if (err) throw err;
 			});
 		}
@@ -43,5 +56,3 @@ export const generateProject = (name, port, author, description, mongooseConnect
 		console.log(err);
 	}
 };
-
-const generateenvFile = (name, mongooseConnection) => {};

@@ -1,7 +1,7 @@
 export default (data) => {
 	return `const http = require('http');
 const app = require('./app');
-const connection = require('./utils/dbConnection');
+const connection = require('./utils/connection');
 
 // setting server post
 const PORT = process.env.PORT || ${data};
