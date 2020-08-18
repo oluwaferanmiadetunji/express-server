@@ -1,5 +1,5 @@
 {
-	"name": "express-server-generator",
+	"name": "server-generator",
 	"version": "1.0.3",
 	"bin": {
 		"setup-server": "./index.js"
