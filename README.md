@@ -7,7 +7,7 @@ This module
 ## Install
 
 ```
-$ npm i express-server-generator
+$ npm i -g express-server-generator
 ```
 
 ## Usage
@@ -32,6 +32,8 @@ Proceed? (Y/n)
 $ cd my-app
 
 $ npm install
+
+$ npm run start
 ```
 
 ## License
