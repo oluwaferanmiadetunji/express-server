@@ -1,6 +1,5 @@
 export default (data) => {
-	return `
-const http = require('http');
+	return `const http = require('http');
 const app = require('./app');
 const connection = require('./utils/dbConnection');
 

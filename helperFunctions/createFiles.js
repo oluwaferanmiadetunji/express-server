@@ -1,8 +1,9 @@
 import fs from 'fs';
 import {FOLDER_EXISTS_ERROR, PROJECT_PATH} from '../constants.js';
 import createPackage from './createPackage.js';
-import createENV from './createenv.js';
+import createENV from './createEnv.js';
 import createServer from './createServer.js';
+import createApp from './createApp.js';
 
 // create the project folder
 export const generateProject = (name, port, author, description, mongooseConnection) => {
@@ -30,6 +31,11 @@ export const generateProject = (name, port, author, description, mongooseConnect
 			});
 			// create the server.js file
 			fs.writeFileSync(`.${PROJECT_PATH}/${name}/src/server.js`, createServer(port), (err) => {
+				if (err) throw err;
+			});
+
+			// create the app.js file
+			fs.writeFileSync(`.${PROJECT_PATH}/${name}/src/app.js`, createApp(), (err) => {
 				if (err) throw err;
 			});
 		}
