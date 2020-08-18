@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 import {createInterface} from 'readline';
 import {DEFAULT_PORT, DEFAULT_NAME} from './constants.js';
 import {generateProject} from './helperFunctions/createFiles.js';

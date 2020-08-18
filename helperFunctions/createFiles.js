@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import fs from 'fs';
 import {FOLDER_EXISTS_ERROR} from '../constants.js';
 import createPackage from './createPackage.js';

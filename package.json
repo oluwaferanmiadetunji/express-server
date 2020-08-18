@@ -1,6 +1,9 @@
 {
 	"name": "express-server-generator",
 	"version": "1.0.1",
+	"bin": {
+		"setup-server": "./index.js"
+	},
 	"description": "This package helps you set up an express server connected to monodb via monoose",
 	"main": "index.js",
 	"type": "module",
