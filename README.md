@@ -1,6 +1,6 @@
 # express-server-generator
 
-> A simple package to set up a mongoose connected express server
+> A simple package to set up a mongoDb connected express server
 
 This module
 

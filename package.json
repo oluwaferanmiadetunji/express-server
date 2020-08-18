@@ -4,7 +4,7 @@
 	"bin": {
 		"setup-server": "./index.js"
 	},
-	"description": "This package helps you set up an express server connected to monodb via monoose",
+	"description": "A simple package to set up a mongoDb connected express server",
 	"main": "index.js",
 	"type": "module",
 	"scripts": {
