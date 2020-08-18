@@ -1,4 +1,4 @@
-# express-server-generator [![CI](https://github.com/oluwaferanmiadetunji/express-server/workflows/CI/badge.svg)](https://github.com/oluwaferanmiadetunji/express-server/actions)
+# express-server-generator
 
 > A simple package to set up a mongoose connected express server
 
